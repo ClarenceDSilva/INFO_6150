@@ -1,0 +1,76 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+  <style>
+  #map {
+    height: 100%;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+</head>
+<body>
+  <div id="map"></div>
+  <script type="text/javascript">
+    var latlon;
+    var image = 'flash.gif';
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: new google.maps.LatLng(50, -50),
+      mapTypeId: google.maps.MapTypeId.SATELLITE
+    });
+
+    google.maps.event.addListener(map, 'click', function(event) {
+        // alert(event.latLng);  // in event.latLng  you have the coordinates of click
+        latlon = event.latLng;
+        // Invoke the 'save' method of the 'LatLon' Java object.
+        GetLatLon.save(JSON.stringify(latlon));
+    });
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var c = url.searchParams.get("data");
+    var locations = JSON.parse(c);
+
+    var marker, i, infowindow;
+    var contentString;
+
+    for (i = 0; i < locations.length; i++) {
+      var lat = JSON.stringify(locations[i]['latutude']).replace("\"","").replace("\"","");
+      var lon = JSON.stringify(locations[i]['longitude']).replace("\"","").replace("\"","");
+
+      var desc = JSON.stringify(locations[i]['issueDescription']).replace("\"","").replace("\"","");;
+      var id = JSON.stringify(locations[i]['issueID']).replace("\"","").replace("\"","");;
+      marker = createMarker(lat, lon, id, desc, i);
+    }
+
+    function createMarker(lat, lon, id, descn, val) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lon),
+        map: map,
+        optimized: false,
+        icon: image,
+      });
+      var contentString = "<div><strong>ALERT!!</strong></div><div></div>Issue ID: "+id+"<div>Description: "+desc+"</div>";
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow = new google.maps.InfoWindow();
+          infowindow.setContent(contentString);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+
+
+      if(val == locations.length - 1) {
+        google.maps.event.trigger(marker, 'click');
+        map.setCenter(marker.getPosition());
+      }
+    }
+  </script>
+</body>
+</html>
