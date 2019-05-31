@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="/stylesheets/viewAllJobs.css">
+
+<section class="insert">
+<div class="body-wrapper" xmlns="http://www.w3.org/1999/html">
+    <a href="/get-data">Refresh</a>
+    {{# each items}}
+    <li>
+        <div class="list-wrapper">
+            <h3>{{this.title}}</h3>
+            <h4>{{this.city}}, {{this.state}}</h4>
+            <p>{{this.comment}}</p>
+        </div>
+    </li>
+      {{/each}}
+        <li>
+    <div>
+        <h3>Software Engineer</h3>
+        <h4>Boston</h4>
+        <p> Design platform and UI</p>
+    </div>
+</li><li>
+    <div>
+        <h3>Analyst</h3>
+        <h4>CA</h4>
+        <p>Design platform and UI</p>
+    </div>
+</li><li>
+    <div>
+        <h3>Business Intelligence Agent</h3>
+        <h4>NY</h4>
+        <p>Design platform and UI</p>
+    </div>
+</li><li>
+    <div>
+        <h3>Job Title</h3>
+        <h4>Location</h4>
+        <p>This is the description of the job</p>
+    </div>
+</li>
+    </ul>
+</div>
+</section>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js'></script>
+<script  src="/javascripts/viewAllJobs.js"></script>

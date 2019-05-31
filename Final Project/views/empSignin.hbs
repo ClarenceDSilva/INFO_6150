@@ -1,0 +1,50 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/demo.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style1.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/animate-custom.css" />
+
+
+<div class="container">
+    <!-- Codrops top bar -->
+    <div class="codrops-top">
+
+                <span class="right">
+
+                </span>
+        <div class="clr"></div>
+    </div><!--/ Codrops top bar -->
+    <header>
+        <h1>NU Careers Sign In</h1>
+        <div><br></div>
+        {{#if hasErrors}}
+            <div class="alert alert-danger">
+                {{# each messages}}
+                    <p>{{this}}</p>
+                {{/each}}
+            </div>
+        {{/if}}
+    </header>
+
+<div id="form-main">
+    <div id="form-div">
+        <form class="form" id="form1" action="/empSignin" method="post">
+
+            <p class="name">
+                <input name="username" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="UserName" id="username" />
+            </p>
+
+            <p class="password">
+                <input name="password" type="password" class="validate[required,custom[email]] feedback-input" id="password" placeholder="Password" />
+            </p>
+
+
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            <div class="submit">
+                <input type="submit" value="SIGN IN" id="button-blue"/>
+                <div class="ease"></div>
+            </div>
+        </form>
+    </div>
+</div>
+        <div><br><br></div>
+
+</div>

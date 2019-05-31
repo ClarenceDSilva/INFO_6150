@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ShopKart-Home</title>
+     <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <script src = "myController.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+			$("#viewCart").on("click", function(){
+				$('html,body').animate({
+					scrollTop: $("#yourKart").offset().top},
+					'slow');
+			})
+		})
+ </script>
+    <style>
+        .headwrap{
+            padding-top: 50px;
+            /*background-color: black;*/
+        }
+        .navbar{
+            margin-bottom: 0px;
+        }
+        .panel-default>.panel-heading {
+            color: cornflowerblue;
+        }
+        
+        .roleH4{
+            color: black;
+        }
+        .dropdown-menu{
+            background-color: lightblue;
+        }
+        .jumbotron, .well{
+            color: firebrick; 
+            background-color: lightblue;
+        }
+        #hrTag{
+        	background-color: blue;
+        }
+        table{
+        	text-align: center;
+        	column-gap: 40px;
+        	
+        }
+        #removeLink{
+        	color: grey;
+        }
+        h4{
+        	color: green;
+        }
+        footer{
+        	padding: 50px;
+        }
+
+        textarea.ng-untouched {
+        	background-color:pink;
+        	padding: 50px;
+        }
+        textarea.ng-touched {
+        	background-color:white;
+        	padding: 50px;
+        }
+        #txtarea{
+        	background-color:pink;
+        	padding: 50px;
+        }
+        
+    </style>
+ 
+</head>
+ 
+<body ng-app="myShoppingApp" ng-controller="myController">
+ 
+   <nav class="navbar-expand-lg navbar navbar-light bg-light"> 
+        <div class="collapse navbar-collapse" id="navcollapse">
+          <ul class="navbar-nav mr-auto" >
+            <li class="nav-item active"><a class="nav-link" href="#"> Home</a></li>
+            
+            <li class="nav-item"><a class="nav-link" id="viewCart" href=#yourKart>Your Kart <span class="badge badge-primary">{{products.length}}</span></a></li>
+          </ul>
+    </nav>
+
+    <div class="container-fluid headwrap">
+        <div class="container">
+            <br>
+            <div class="jumbotron text-center">
+            <h2>Welcome to ShopKart!</h2> 
+            <p></p> 
+            </div> 
+        </div>
+        <div class="bg-faded text-primary text-center"><h4>Get Started</h4> </span></div>
+        <div class="bg-inverse text-center">
+            <hr>
+        </div>
+        <div class="row">
+        
+        	<div class="col-md-3 col-lg-3 col-sm-6" ng-repeat=" product in showProduct.productList">
+        		<div class="card" style="width: 20rem;">
+        			<img class="card-img-top" src="" alt="">
+        			<div class="card-block">
+        				<h4 class="card-title">{{product.name}}</h4>
+        				<p class="card-text">Rating: {{product.rating}}/5<br> Price: ${{product.price}}</p>
+        				<a href ng-click="addItem(product)" ng-model="showMdl"><center>Add to Kart</a>
+        				</div>
+        			</div><br>
+        		</div>
+        	</div>
+        </div>
+        <hr id="hrTag"></br></br>
+        <div >
+        <h2 id="yourKart" ><center>Your Kart</center></h2><br>
+        <form name="myform" ng-submit="checkout()" novalidate>
+        <table class="w3-table">
+        	<thead>
+        		<tr>
+        			<th>Name</th>
+        			<th>Price</th>
+        			<th>Action</th>
+        		</tr>
+        		</thead>
+        		<tbody>
+        		<tr ng-repeat=" x in products">
+        			<td>{{x.name}}</td>
+        			<td>${{x.price}}</td>
+        			<td><span ng-click="removeItem($index)"><a href="" id="removeLink">remove</a></span></td>
+        		</tr>
+        		</tbody>
+        		<tfoot>
+        			<tr>
+        				<th id="total" colspan="1">Total :</th>
+        				<td>${{totalPrice()}}</td>
+        			</tr>
+        			<tr>
+        				<th id="total" colspan="1">Total including Tax :</th>
+        				<td>${{totalPriceWithTax()}}</td>
+        			</tr>
+        			<tr>
+        				<th id="total" colspan="1">Total after promotional code applied :</th>
+        				<td>${{totalPriceWithTax() - (totalPriceWithTax() * selectedDiscount.value)}}</td>
+        			</tr>
+        		</tfoot>
+        </table><br>
+        <div>
+        	<h4>Want to Apply Discount? Choose any our promo options below:</h4>
+        	<select ng-model="selectedDiscount" ng-options= "discount for (discount, y) in discountCoupons">
+        	</select>
+        </div><br>
+        <div class="row">
+        	<div class="col">
+        	<h4>Enter Shipping address:</h4>
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" ng-model="name" ng-pattern="/^[A-Za-z]+$/" required>
+                <span style = "color:red" ng-show="myform.name.$invalid && !myform.name.$pristine" >
+                <span ng-show="myform.name.$error.required" >Name is required. Only alphabets permitted!</span>
+                </span>
+
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error' : myform.add1.$invalid && !myform.add1.$pristine }">
+                        <label>Address Line 1</label>
+                        <input type="text" name="add1" class="form-control" ng-model="add1" ng-minlength="3" ng-maxlength="8">
+                        <p style = "color:red" ng-show="myform.add1.$error.minlength" class="help-block">Username is too short</p>
+                        <p style = "color:red" ng-show="myform.add1.$error.maxlength" class="help-block">Username is too long</p>            
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error' : myform.add2.$invalid && !myform.add2.$pristine }">
+                        <label>Address Line 2</label>
+                        <input type="text" name="add2" class="form-control" ng-model="add2" ng-minlength="3" ng-maxlength="8">
+                        <p style = "color:red" ng-show="myform.add2.$error.minlength" class="help-block">Username is too short</p>
+                        <p style = "color:red" ng-show="myform.add2.$error.maxlength" class="help-block">Username is too long</p>            
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error' : myform.email.$invalid && !myform.email.$pristine }">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" ng-model="email">
+                <p style = "color:red" ng-show="myform.email.$invalid && !myform.email.$pristine" class="help-block">Enter a valid email.</p>
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text" name="phone" class="form-control" ng-model="phone" ng-pattern="/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/">
+                <p style = "color:red" ng-show="myform.phone.$invalid && !myform.phone.$pristine" class="help-block">Phone should be of type: XXX-XXX-XXXX (Numbers only)</p>
+            </div>
+
+        	</div>
+
+        	<div class="col" >
+               <h4> Billing address (Same as Shipping address)</h4>
+
+               <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" ng-model="name" ng-disabled="myform.name" >
+            </div>
+
+            <div class="form-group">
+                <label>Address Line 1</label>
+                <input type="text" class="form-control" ng-model="add1" ng-disabled="myform.add1">   
+            </div>
+
+            <div class="form-group">
+                <label>Address Line 2</label>
+                <input type="text" class="form-control" ng-model="add2" ng-disabled="myform.add2">   
+            </div class="form-group">
+
+            <div class="form-group" >
+                <label>Email</label>
+                <input type="email"  class="form-control" ng-model="email" ng-disabled="myform.email">
+                
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text"  class="form-control" ng-model="phone" ng-disabled="myform.phone" >
+            </div>
+
+        </div></div>
+    </div></br></br></form>
+    <center><button type="button" class="btn btn-primary" ng-disabled="myform.$invalid" ng-click="checkout()">Checkout</button> </center>
+        		
+<footer></footer>
+
+
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
+ 
+</html>

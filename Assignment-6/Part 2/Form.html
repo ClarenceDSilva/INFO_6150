@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Feedback</title>
+	<style>
+	label {	float: left;
+		width: 150px;}
+		#container{
+			width: 700px;
+			margin: auto;
+			background-color: beige;
+		} 
+		main{
+			padding: 50px;
+		}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type = "text/javascript">
+		$(document).ready(function(){
+			var isValid = true;
+
+			function checkbox(){
+				var count = 0;
+				$(":checkbox").each(function(){
+					if($(this).prop("checked")){
+						count++;
+					}
+					if(count == 0){
+						$("#sourceErrMsg").html("Please select one checkbox").css('color', 'red');
+						$("#sourceErrMsg").show();
+						isValid = true;
+					}else{
+						$("#sourceErrMsg").hide();
+						isValid = false;
+					}	
+				})
+			}
+
+
+			$("#submit").click(function (e){
+				e.preventDefault();
+				checkbox();
+				if(isValid == false){
+				
+				alert("Submitted Successfully!")
+			}else{
+				
+				alert("Your form has errors, kindly rectify them!")
+			}
+			// var isValid = true;
+			// validationMsg = '';
+
+			if ($(":radio:checked").val() == null) { 
+				//alert("no radio checked")
+				console.log($(this))
+				$("#titleErrMsg").html("Please Select a Title").css('color', 'red');
+  				$("#titleErrMsg").show();
+  				isValid = true;
+				//$(this).next("label.error").show().css('color', 'red');
+			}else{
+				$("#titleErrMsg").hide();
+				isValid = false;
+			}		
+
+			$('input[type="text"]').each(function(){
+				console.log($(this))
+				if($.trim($(this).val()) == '') {
+				$(this).css({
+				 	"border-color": "1px solid red",
+				 	"background-color": "#FFCECE",
+				 });
+				$(this).next("label.error").show().css('color', 'red');
+				isValid = true;
+				 
+			}else{
+				$(this).next("label.error").hide();
+				isValid = false;
+
+			}
+		}); 
+
+			$("#comments").each(function(){
+				console.log($(this))
+				if($.trim($(this).val()) == '') {
+				$(this).css({
+				 	"border-color": "1px solid red",
+				 	"background-color": "#FFCECE",
+				 });
+				$(this).next("label.error").show().css('color', 'red');
+				 isValid = true;
+			}else{
+				$(this).next("label.error").hide();
+				isValid = false;
+
+			}
+		});
+
+	});
+			// Validating if the field is empty upon field looses its focus
+/*			$('input[type="text"]').focusout(function(){
+				if(!($(this).next('label.error').is(":visible")) && $.trim($(this).val() == '')) {
+					$(this).next('label.error').show();
+					isValid = true;
+				}
+			
+			
+				 else if($(this).next('label.error').is(":visible") || $.trim($(this).val() != '')) {
+					$(this).next('label.error').hide();
+					isValid = true;	
+				}
+				// else if(!($(this).next('label.error').is(":visible")) && $.trim($(this).val() == '')) {
+				// 	$(this).next('label.error').show();
+				// 	isValid = true;
+				// }
+			});*/
+			
+			
+
+		});
+
+
+	</script>
+
+</head>
+<body>
+	<div id="container">
+
+		<main>
+			<h2>Feedback</h2>
+			<h3>Love something? Hate something? Let us know!</h3>
+			Note : Fields marked with an asterisk(*) are mandatory
+			<br><br>
+			<form method="post" novalidate>
+				<label>Title*:</label>
+				<input type="radio" name="title" id="miss" value="miss" required="required"/>Miss
+				<input type="radio" name="title" id="mr" value="mr" required="required"/>Mr.
+				<input type="radio" name="title" id="mrs" value="mrs" required="required"/>Mrs.
+				<span class="titleErrMsg" id="titleErrMsg"></span>
+				
+				<br><br>
+				<label for="firstName">First Name*:</label>
+				<input type="text" name="firstName" id="firstName" placeholder="First Name" />
+				<label class="error" style="display: none;">First Name is required</label>
+				<br><br>
+
+
+				<label for="lastName">Last Name*:</label>
+				<input type="text" name="lastName" id="lastName" placeholder="Last Name" />
+				<label class="error" style="display: none;">Last Name is required</label>
+				<br><br>
+
+
+				<label for="emailId">Email Id*:</label>
+				<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" />
+				<label class="error" style="display: none;">Email is required</label>
+				<br><br>
+
+
+				<label for="phoneNumber">Phone Number*:</label>
+				<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" />
+				<label class="error" style="display: none;">Phone Number is required</label>
+				<br><br>
+
+				<label for="zipcode">ZipCode*:</label>
+				<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" />
+				<label class="error" style="display: none;">Zip Code is required</label>
+				<br><br>
+
+				<label for="zipcode">How did you hear*:</label>
+				<input type='checkbox' name="source" value="facebook" /> Facebook
+				<input type='checkbox' name="source" value="google" /> Google
+				<input type='checkbox' name="source" value="yelp" /> Yelp
+				<span class="sourceErrMsg" id="sourceErrMsg"></span> 
+				<br><br> 
+
+				<label for="comments">Comments*:</label>
+				<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
+				<label class="error" style="display: none;">Enter your comments</label>
+				<br><br>
+				<input type="Submit" id="submit">
+				<input type="Reset" id="reset">
+				<br><br>
+			</form>
+		</main>
+	</div>
+
+	<script>
+
+	</script>
+
+</body>
+</html>

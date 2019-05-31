@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<!-- Also read chapter 9 from slides - Regular Expressions -->
+
+<html>
+<head>
+	<title>Table CheckList</title>
+	<link rel="stylesheet" type="text/css" href="table.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type = "text/javascript">
+		/* $(document).ready(function(){ 
+		 	
+    $("#button").attr("disabled", "disabled"); 
+});*/
+
+$(document).ready(function(){
+	$("#button").attr("disabled", "disabled").css({
+		"background-color": "grey",
+		"border":"grey"
+	});
+	$(".dropDownTextArea").hide();
+	$('.showRow').on("click", function(){
+		$(this).parents().eq(1).next('tr.dropDownTextArea').toggle("fast");
+	});
+
+	$('input[type="checkbox"]').click(function() {
+		if($(this).is(":checked")) {
+			$("#button").removeAttr("disabled");
+			$("#button").removeClass("disableButton")
+			$("#button").addClass("enableButton");
+		} else {
+			$('input[type="checkbox"]').each(function() {
+				if($(this).is(":checked")) {
+					$("#button").removeAttr("disabled");
+					$("#button").removeClass("disableButton")
+					$("#button").addClass("enableButton");
+					return false;
+				} else {
+					$("#button").attr("disabled","disabled");
+					$("#button").removeClass("enableButton")
+					$("#button").addClass("disableButton");
+				}
+			})
+		}
+	})
+})
+
+
+
+
+</script>
+
+</head>
+<body>
+	<table id="myTable">
+		<tr>
+			<th></th>
+			<th>STUDENT</th>
+			<th>ADVISOR</th>
+			<th>AWARD<br/>STATUS</th>
+			<th>SEMESTER</th>
+			<th>TYPE</th>
+			<th>BUDGET<br />#</th>
+			<th>PERCENTAGE</th>
+		</tr>
+		<tr class="parent1">
+			<td><input type="checkbox" /><br /><br /><img class="showRow" src="down.png" width="25px" /></td>
+			<td>Student 1</td>
+			<td>Teacher 1</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>12345</td>
+			<td>100%</td>
+		</tr>
+		<tr class="dropDownTextArea"><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number: <br />
+			Tuition Number: <br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+		<tr class="parent2">
+			<td><input type="checkbox" /><br /><br /><img class="showRow" src="down.png" width="25px" /></td>
+			<td>Student 2</td>
+			<td>Teacher 2</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>23456</td>
+			<td>100%</td>
+		</tr>
+		<tr class="dropDownTextArea"><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number: <br />
+			Tuition Number: <br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+		<tr>
+			<td><input type="checkbox" /><br /><br /><img class="showRow" src="down.png" width="25px" /></td>
+			<td>Student 3</td>
+			<td>Teacher 3</td>
+			<td>Approved</td>
+			<td>Fall</td>
+			<td>TA</td>
+			<td>34567</td>
+			<td>100%</td>
+		</tr>
+		<tr class="dropDownTextArea"><td colspan="8">
+			Advisor:<br /><br />
+			Award Details<br />
+			Summer 1-2014(TA)<br />
+			Budget Number: <br />
+			Tuition Number: <br />
+			Comments:<br /><br /><br />
+			Award Status:<br /><br /><br />
+		</td></tr>
+	</table>
+
+	<br /><br />
+	<button id="button">SUBMIT SELECTED AWARDS</button>
+
+	<nav class="socialmediaicons"></nav>
+	<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+.menu_main_content{
+	padding-bottom:0px;font-family: Abril Fatface; font-size:20px;
+	}
+
+.carousel-indicators.active {
+    padding-bottom: 130px;
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    background-color: #f00;
+}
+.carousel-inner{
+	overflow: hidden;
+	width: 100%;
+}
+.carousel-inner p {
+	font-size:30px;
+	font-weight: bolder;	
+	color: #FFCA33;
+}
+
+.carousel-control{
+	bottom: 100px;
+}
+
+.carousel-caption{
+	text-align: center;
+}
+
+@media screen and (min-width:768px){
+    .carousel-caption h3{font-size: 52px;} 
+    .carousel-caption p{font-size: 32px;} 
+    .carousel-caption{padding-bottom:160px;}
+}
+
+.btn {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}

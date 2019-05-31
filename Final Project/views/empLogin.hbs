@@ -1,0 +1,63 @@
+<link rel="stylesheet" type="text/css" href="/stylesheets/demo.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style1.css" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/animate-custom.css" />
+
+<div class="container">
+    <!-- Codrops top bar -->
+    <div class="codrops-top">
+
+                <span class="right">
+
+                </span>
+        <div class="clr"></div>
+    </div><!--/ Codrops top bar -->
+    <header>
+        <h1>NU Careers Login</h1>
+        <div><br></div>
+        {{#if hasErrors}}
+            <div class="alert alert-danger">
+                {{# each messages}}
+                    <p>{{this}}</p>
+                {{/each}}
+            </div>
+        {{/if}}
+
+    </header>
+    <section>
+        <div id="container_demo" >
+
+            <a class="hiddenanchor" id="toregister"></a>
+            <a class="hiddenanchor" id="tologin"></a>
+            <div id="wrapper">
+                <!--<div id="/login" class="animate form">-->
+                <form  action="/empLogin" method="post" autocomplete="on">
+                    <h1>Log in</h1>
+                    <p>
+                        <label for="username" class="uname" data-icon="u" > Username </label>
+                        <input id="username" name="username" required="required" type="text" placeholder="husky user-id "/>
+                    </p>
+                    <p>
+                        <label for="password" class="youpasswd" data-icon="p"> Password </label>
+                        <input id="password" name="password" required="required" type="password" placeholder="8 digits or more" />
+                    </p>
+                    <p class="keeplogin">
+                        <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
+                        <label for="loginkeeping">Keep me logged in</label>
+                    </p>
+                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                    <p class="login button">
+
+                        <button type="submit" class="btn btn-secondary">Log In</button>
+                    </p>
+                    <p class="change_link">
+                        Not a member yet ?
+                        <a href="signin" class="to_register">Join us</a>
+                    </p>
+                </form>
+            </div>
+            <div><br><br></div>
+
+        </div>
+    </section>
+
+</div>

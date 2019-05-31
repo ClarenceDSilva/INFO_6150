@@ -1,0 +1,43 @@
+<header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="menu_main col-xs-3" style="background-color:#35404f;">
+                <a href="/index"> <h4 class="menu_main_logo"><i class="fa fa-university" aria-hidden="true"> NU CAREERS</i></h4></a>
+            </div>
+            <div class="menu_main_content col-xs-6">
+                <div class = "dropdown">
+                    <div class="col-xs-3 droplink" style="background-color:#35404f;" ><a href="#" style="color: lightblue; text-decoration:none" id="dropdownMenu1" data-toggle="dropdown">Students <span class="caret"></span></a>
+                        <div class="dropdown-content">
+                            <a href="login"><i class="fa fa-user" aria-hidden="true"> Login </i></a>
+                            <a href="signin"><i class="fa fa-sign-in" aria-hidden="true"> SignUp</i></a>
+                            <a href="profileSetup"><i class="fa fa-male" aria-hidden="true"> <i class="fa fa-female" aria-hidden="true"> Create your profile</i></i></a>
+                            <a href="viewAndApplyJobs"> View and apply for jobs</a>
+                            <a href="viewMyApplications"> View my applications</a>
+                        </div></div></div>
+                <div class = "dropdown">
+                    <div class="col-xs-3 droplink" style="background-color:#35404f;" ><a href="#" style="color: lightblue; text-decoration:none" id="dropdownMenu1" data-toggle="dropdown">Employeers <span class="caret"></span></a>
+                        <div class="dropdown-content">
+                            <a href="empLogin"><i class="fa fa-user" aria-hidden="true"> Login </i></a>
+                            <a href="empSignin"><i class="fa fa-sign-in" aria-hidden="true"> SignUp</i></a>
+                            <a href="postJob"><i class="fa fa-clipboard" aria-hidden="true"> Post a job</i></a>
+                            <a href="viewCandidates"><i class="fa fa-clipboard" aria-hidden="true"> Applied Candidates</i></a>
+                        </div></div></div>
+                <div class = "dropdown">
+                    <div class="col-xs-3 droplink" style="background-color:#35404f;" ><a href="#" style="color: lightblue; text-decoration:none" id="dropdownMenu1" data-toggle="dropdown">User Management <span class="caret"></span></a>
+                        <div class="dropdown-content">
+                            {{# if login}}
+                            <!--<a href="#"><i class="fa fa-user" aria-hidden="true"> User account </i></a>-->
+                            <a href="/logout"><i class="fa fa-sign-in" aria-hidden="true"> Logout</i></a>
+                                {{else}}
+                                <a href="login"><i class="fa fa-user" aria-hidden="true"> Login </i></a>
+                                <a href="signin"><i class="fa fa-sign-in" aria-hidden="true"> SignUp</i></a>
+                            {{/if}}
+                        </div></div></div>
+
+               <!-- <div class="col-xs-3" style="background-color:#35404f;"><a href="#" style="color: lightblue; text-decoration:none">Employeers</a></div>-->
+                <div class="col-xs-3" style="background-color:#35404f;"><a href="aboutUs" style="color: lightblue; text-decoration:none">About Us</a></div>
+                <div class="col-xs-3" style="background-color:#35404f;"><a href="faq" style="color: lightblue; text-decoration:none">FAQ's</a></div>
+            </div>
+        </div>
+</div>
+</header>

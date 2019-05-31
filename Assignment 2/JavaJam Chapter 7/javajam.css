@@ -1,0 +1,95 @@
+	
+		body
+	{
+        
+        background-color: #E2D2B0;
+        font-family: "Verdana", Arial, serif;
+    	}
+
+        #wrapper{
+
+        }
+        #wrapper nav{
+            font-weight: bold;
+        }
+
+        main{
+             background-image:url("windingRoad.jpg");
+             background-repeat: no-repeat center fixed;
+             background-size: cover;
+
+             margin-left: 200px;
+             background-color: #FCEBB6; 
+             font-color: #E2D2B0;
+             padding-bottom: 315px; 
+             
+        }
+        nav a:link { color: #CC9933; }
+        nav a:visited { color: #D2B48C; }
+        nav a:hover { color: #F5F5DC; }
+
+        nav { font-weight: bold;
+        text-align: center;
+        padding: 25px; 
+        float: left; 
+        position: fixed;
+        }
+        nav a { text-decoration: none; }
+        
+        header{
+            background-color: #D2B48C;
+            color: #2E0000;
+            padding: 10px;
+        }
+        header.h1{
+            font-family: "Georgia", Times New Roman, serif;
+        }
+
+        #wrapper ul{
+            list-style: none;
+            list-style-image: url(coffeeIcon.png);
+            padding-top: 60px; 
+            color: lightblue;
+        }
+
+       #contact{
+            color: lightblue;
+       }
+       #contentMenu{
+
+       }
+       #month{
+            background-color: #D2B48C;
+       }
+       footer{
+         background-color: #D2B48C;
+         font-size: .60em;
+         font-style: italic;
+         color: #000000;
+         text-align: center;
+         padding: 30px;
+         position: fixed;
+         bottom: 2px;
+         width: 100%;
+
+       }
+       dt{
+            color: lightblue;
+            font-weight: bold;
+            padding-top: 40px
+       }
+       dd{
+            color: lightblue;
+       }
+        p{
+            color: lightblue    ;
+            font-weight: bold;
+       }
+
+       h1{
+            font-family: "Georgia", Times New Roman, serif;
+       }
+       #wrapper h2{
+            padding-top: 15px;
+            left: 40px; 
+       }

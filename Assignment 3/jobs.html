@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Job page</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="javajam.css" >
+</head>
+<body>
+  <div id ="wrapper">
+	<header><h1>JavaJam Coffee House</h1></header>
+	 <nav>
+    <ul>
+      <li><a href="index.html">Home</a>
+      <ul>
+        <li><a href="#">Hot Brews</a></li>
+        <li><a href="#">Cold Brews</a></li>
+      </ul>
+      </li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+   </ul>
+   </nav>
+  </div>
+  <h1 align='center'>Application Form</h1>
+<form method="get" >
+	<table>
+	<tr>
+	<td>
+<label for="firstName">First Name:</label>
+</td>
+<td>
+<input type="text" name="firstName" id="firstName" required>
+</td>
+<td>
+<label for="lastName">Last Name:</label>
+</td>
+<td>
+<input type="text" name="lastName" id="lastName">
+</td></tr>
+<tr>
+<td>
+<label for="myEmail">E-mail Address:</label>
+</td>
+<td>
+<input type="email" name="myEmail" id="myEmail" required>
+</td>
+<td>
+<label for="phone">Phone Number:</label>
+</td>
+<td>
+<input type="Phone" name="phone" id="phone" required>
+</td>
+</tr>
+<tr>
+<td><label for="myPass">Password:</label></td>
+<td><input type="password" name="myPass" id="myPass" required></td>
+<td><label for="dob">Date of Birth:</label></td>
+<td><input type="Date" id="dob" rows="2" cols="20"></td>
+</tr>
+<tr>
+	<td>
+ <input type="radio" name="gender" value="male"> Male<br>
+ <input type="radio" name="gender" value="female"> Female<br>
+</td>
+<td><label for="ssn">Do you already have an SSN?:</label></td>
+<td colspan="2"><input type="radio" name="ssn" value="Yes"> Yes<br>
+ <input type="radio" name="ssn" value="No"> No<br></td>
+</tr>
+<tr>
+<td><label for="roles">Select the roles you would wish to apply for:</label></td>
+<td colspan="3">
+<input type="checkbox" name="role1" value="coffeeBrewer"> Coffee Brewer<br>
+<input type="checkbox" name="role2" value="Steward"> Steward<br>
+<input type="checkbox" name="role3" value="cash"> Cashier<br>
+<input type="checkbox" name="role4" value="entertain"> Entertainment<br>
+</td> 
+</tr>
+<td colspan="4"><center>
+<input id="mySubmit" type="submit" value="Apply"></center>
+</td>
+</table>
+</form>
+</div>
+<footer>
+<i><small>Copyright &copy; 2016 JavaJam Coffee House<br>
+<a href="mailto:yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a></small></i>
+</footer>
+</body>
+</html>

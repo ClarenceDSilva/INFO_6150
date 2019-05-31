@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>NU Careers: {{title}}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Abril+Fatface" rel="stylesheet">
+    <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login and Registration Form with HTML5 and CSS3" />
+    <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/headerandfooter.css">
+
+    <script>
+        $(document).ready(function() {
+            $(".hoverli").hover(
+                    function() {
+                        $('ul.file_menu').stop(true, true).slideDown('medium');
+                    },
+                    function() {
+                        $('ul.file_menu').stop(true, true).slideUp('medium');
+                    })
+        });
+
+    </script>
+
+    <!----JQuery for postJob.hbs---->
+
+    <script>
+        /*Jquery for Job Description*/
+        $(document).ready(function()  {
+            $(".jobform").animate({left: '250px'});
+            $(".alert").hide();
+            $("div.show-if-active").hide();
+            $("div.markItUpContainer").hide();
+            //$("div.show-if-active-dropdown").hide();
+
+            /*$("input[name$='job[loc]']").click(function () {
+                $("div.show-if-active-dropdown").slideDown();
+            })*/
+
+            $("input[name$='job[descUrl]']").click(function () {
+                $("input[name$='job[desc]']").prop('checked', false);
+                $("div.show-if-active").slideDown();
+                $("div.markItUpContainer").slideUp();
+
+            })
+            $("input[name$='job[desc]']").click(function () {
+                $("input[name$='job[descUrl]']").prop('checked', false);
+                $("div.markItUpContainer").slideDown();
+                $("div.show-if-active").slideUp();
+            })
+
+            $('button').click(function(){
+                $('.alert').show();
+            })
+
+            /* $("#job_type_country").click(function () {
+                 $("div.locationDropdown").slideDown();
+
+             })*/
+        });
+
+    </script>
+
+</head>
+
+  {{> header}}
+
+<body>
+    {{{body}}}
+
+    <!--Adding Javascript nad Jquery plugins for bootstrap 4-->
+
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+</body>
+
+  {{> footer}}
+</html>

@@ -1,0 +1,86 @@
+	
+		body
+	{
+        
+        background-color: #E2D2B0;
+        font-family: "Verdana", Arial, serif;
+    	}
+
+        #wrapper{
+
+        }
+        #wrapper nav{
+            font-weight: bold;
+        }
+
+        
+        nav a:link { color: #E2D2B0; }
+        nav a:visited { color: #D2B48C; }
+        nav a:hover { color: #F5F5DC; }
+
+        nav { font-weight: bold;
+        text-align: center;
+        padding: 25px; 
+        float: left; 
+        
+        }
+        nav a { text-decoration: none; }
+        
+        header{
+            background-color: #D2B48C;
+            color: #2E0000;
+            text-align: center;
+            padding: 1px;
+        }
+        header.h1{
+            font-family: "Georgia", Times New Roman, serif;
+        }
+
+        #wrapper ul{
+            list-style: none;
+            list-style-image: url(coffeeIcon.png);
+            
+            color: #2E0000;
+        }
+
+       #contact{
+            color: #2E0000;
+       }
+       #contentMenu{
+
+       }
+       #month{
+            background-color: #D2B48C;
+       }
+       footer{
+         background-color: #D2B48C;
+         font-size: .60em;
+         font-style: italic;
+         color: #000000;
+         text-align: center;
+         padding: 0px;
+         position: fixed;
+         bottom: 2px;
+         width: 100%;
+
+       }
+       dt{
+            color: lightblue;
+            font-weight: bold;
+            padding-top: 40px
+       }
+       dd{
+            color: lightblue;
+       }
+        p{
+            color: lightblue    ;
+            font-weight: bold;
+       }
+
+       h1{
+            font-family: "Georgia", Times New Roman, serif;
+       }
+       #wrapper h2{
+            padding-top: 15px;
+            left: 40px; 
+       }

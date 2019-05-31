@@ -1,0 +1,151 @@
+body {
+
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.125rem;
+  line-height: 1.6875rem;
+  margin: 0 auto;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+main {
+  margin: 0 auto;
+  max-width: 760px;
+  padding: 1.6875rem;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 3em;
+  color: rgba(0, 0, 0, 0.6);
+}
+h1 b {
+  color: #e71e1e;
+  font-weight: bold;
+}
+
+a {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.main-head {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 1.6875rem;
+}
+
+.main-logo, .login, .post-job {
+  float: left;
+}
+
+.main-logo, .login {
+  width: 20%;
+}
+
+.post-job {
+  width: 60%;
+  text-align: center;
+}
+
+.container {
+  margin-top: 40px;
+  position: relative;
+  border-bottom: 1px solid transparent;
+}
+
+.second-head {
+  text-align: center;
+}
+
+.job-card {
+  margin: 10px 0;
+  background: white;
+  overflow: hidden;
+  clear: both;
+  padding: 5px 0;
+  border-left: 5px solid transparent;
+}
+.job-card:hover {
+  border-left: 5px solid #00b4ff;
+}
+.job-card .company-logo {
+  float: left;
+  width: 20%;
+  padding: 0 0 0;
+  font-size: 2em;
+  text-align: center;
+  line-height: 100%;
+}
+.job-card header {
+  float: left;
+  width: 60%;
+}
+.job-card footer {
+  float: left;
+  width: 20%;
+}
+
+.main-logo {
+  text-transform: uppercase;
+  color: #515151;
+  font-weight: bold;
+}
+
+button {
+  background: none;
+  border: 2px solid #00b4ff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #00b4ff;
+  font-weight: bold;
+  transition: 0.2s all ease-in-out;
+}
+button:hover {
+  background: #00b4ff;
+  color: #fff;
+}
+
+.avatar {
+  float: right;
+  margin: 5px 0;
+  width: 40px;
+  border-radius: 5px;
+}
+
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.job-info1 {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 760px;
+  padding: 1em;
+  background-color: #eee;
+  z-index: 9999;
+}
+
+.job-info2 {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 760px;
+  padding: 1em;
+  background-color: #eee;
+  z-index: 9999;
+}

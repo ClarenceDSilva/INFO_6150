@@ -1,0 +1,64 @@
+.jumbotron{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+h1{
+    font-family: 'Exo 2', serif;
+    font-size: 60px;
+    font-weight: bolder;
+    text-align: center;
+    color: chartreuse !important;
+}
+
+h2{
+    font-family: 'Exo 2', serif;
+    font-size: 40px;
+    color: darkgray;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background: #fff url(../images/bg.jpg) repeat top left;
+}
+
+span.asterisk{
+    color: red;
+}
+
+.disclaimer{
+    margin-left: 15%;
+    color: red;
+}
+
+.profileForm{
+    margin-left: 15%;
+
+}
+
+.float-label{
+    font-family: 'Exo 2', serif;
+    font-size: 20px;
+    padding-bottom: 15px;
+
+}
+
+input{
+    border: groove;
+}
+
+#majorCat, #majorList{
+    width: 380px;
+    height: 30px;
+    font-size: 20px;
+    border: groove;
+}
+
+label{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    padding-right: 15px;
+    font-weight: bolder !important;
+    padding-bottom: 5px;
+}
